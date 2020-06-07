@@ -1,0 +1,28 @@
+<body>
+<ul class="top_page">
+    <li class="login_page">
+    <%= form_tag("/login") do%>
+    <p>twitter ID</p>
+    <input name="user_twitter_id">
+
+    <p>password</p>
+    <input type="password" name="password"><br><br><br><br>
+    <input type="submit" value="ログイン">
+    <% end %>
+  <!--<%= link_to("/login") do %>-->
+  <!--  <span>ログイン</span>-->
+  <!--  <% end %>-->
+
+    <div class = "chara_message_top">
+        <h1 class="charaname top_title">蔵本雪花</h1>
+                <audio  class="sound" preload="metadata" controls>
+                    <source src="/sound/reache_06.mp3" type="audio/mp3">
+                </audio>
+    </div>
+    </li>
+    <li>
+        <img src = "/1005_蔵本雪花.png">
+
+    </li>
+</ul>
+</body>

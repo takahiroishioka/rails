@@ -1,0 +1,70 @@
+<ul class ="user_title">
+    <li>
+        <img src="<%= "/#{@current_user.user_icon}" %>">
+    </li>
+    <li>
+        <h1><%= @current_user.user_name %></h1>
+    </li>
+</ul>
+<ul class ="main_layout">
+    <li class = "side_menu">
+        <ul class ="side_menu_list">
+            <%= link_to("/users/#{@current_user.id}") do %>
+              <li>マイページ</li>
+            <% end %>
+            <%= link_to("/users//#{@current_user.id}/works") do %>
+              <li>参加作品</li>
+            <% end %>
+            <%= link_to("/tasks/#{@current_user.id}") do %>
+              <li>タスク</li>
+            <% end %>
+            <%= link_to("/messages/#{@current_user.id}") do %>
+              <li>メッセージ</li>
+            <% end %>
+          <li>設定</li>
+        </ul>
+    </li>
+    <li class ="main_content">
+        <img  class = "baloon_ico" src = "/ico_hiina.png">
+        <div class="balloon1-left">
+            <p>いよいよ収録だな！頑張れよ！<p>
+        </div>
+
+        <h2>メッセージ一覧</h2>
+            <ul class="message_list_title">
+                <li class="message_post">アイコン</li>
+                <li class="message_post">キャラ名</li>
+                <li class="message_post">作品名</li>
+                <li class="message_pre">メッセージ</li>
+            </ul>
+
+            <ul class="message_list">
+                <li class="chara_icon message_post"><img src ="/ark.png"></li>
+                <li class="message_post">アーク</li>
+                <li class="message_post"><%= link_to("Reache","/works") %></li>
+                <li class="message_pre message_per_position">サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル</li>
+            </ul>
+            <ul class="message_list">
+                <li class="chara_icon message_post"><img src ="/chara_raplus_05hitotoki.jpg"></li>
+                <li class="message_post">雨音</li>
+                <li class="message_post">ラプラスの餞に</li>
+                <li class="message_pre message_per_position">サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル</li>
+            </ul>
+            <ul class="message_list">
+                <li class="chara_icon message_post"><img src ="/chara_01_04yasiro_ico.jpg"></li>
+                <li class="message_post">八城</li>
+                <li class="message_post"><%= link_to("Reache","/works") %></li>
+                <li class="message_pre message_per_position">サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル</li>
+            </ul>
+            <ul class="message_list">
+                <li class="chara_icon message_post"><img src ="/yuduki.png"></li>
+                <li class="message_post">優月</li>
+                <li class="message_post">真夏の夜の夢</li>
+                <li class="message_pre message_per_position">サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル</li>
+            </ul>
+
+
+
+            
+        
+    </ul>

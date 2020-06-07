@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chara_name: MyString
+  chara_icon: MyString
+  cast_id: 1
+  tag1: MyString
+  tag2: MyString
+  tag3: MyString
+  tag4: MyString
+
+two:
+  chara_name: MyString
+  chara_icon: MyString
+  cast_id: 1
+  tag1: MyString
+  tag2: MyString
+  tag3: MyString
+  tag4: MyString

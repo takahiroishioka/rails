@@ -1,0 +1,156 @@
+ul.side_menu_list{
+    list-style:none;
+    padding-left:0;
+    margin-top : 50px;
+    
+    li{
+        width: 90%;
+        background : #5D99FF;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        
+        .admin{
+            background : #f25c5c;            
+        }
+    }
+}
+
+ul.user_works, ul.user_works_title, ul.main_layout, ul.user_new, ul.user_new_title, ul.user_todo, ul.user_todo_title, ul.user_db{
+    list-style: none;
+    display: flex;
+    
+}
+
+
+ul.user_works, ul.user_works_title,ul.user_new ,ul.user_new_title,ul.user_todo, ul.user_todo_title{
+    
+    border-bottom: 1px solid #b8d2ff;
+    
+    li{
+        width :14%;
+        text-align:center;
+
+        
+        img {
+            width : 100px;
+            border-radius : 50%;
+            padding : 10px 0;
+        }
+        
+        .sound{
+            padding : 30px;
+            width: 90%;
+        }
+    }
+}
+
+
+
+ul.user_works_title, ul.user_new_title, ul.user_todo_title, ul .message_list_title{
+    background : #b8d2ff;
+}
+
+ul.user_works, ul.user_new, ul.user_todo{
+    li{
+        height : 120px;
+        line-height: 120px;
+        
+        .chara_icon{
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+ul.user_title{
+    height: 150px;
+    list-style: none;
+    display: flex;
+    margin-top: 50px;
+    margin-left: 30px;
+    
+    li{
+        height: 100px;
+        line-height: 100px;
+        padding-left: 20px;
+    }
+    
+    img{
+        width : 150px;
+        border-radius : 50%;
+    }
+}
+
+ul.user_new,ul.user_new_title{
+    
+    li{
+    width: 16%;
+    }
+}
+
+ul.user_todo,ul.user_todo_title{
+    
+    li{
+    width: 20%;
+    }
+}
+
+.balloon1-left {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 7px 10px;
+  height : 50px;
+  line-height: 50px;
+  border-radius: 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #b8d2ff;
+}
+
+.balloon1-left:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #b8d2ff;
+}
+
+.balloon1-left p {
+  margin: 0;
+  padding: 0;
+}
+
+.baloon_ico{
+    width:100px;
+    margin-bottom : -40px;
+    border-radius : 50%;
+    
+}
+
+ul.user_db{
+    li{
+    width : 20%;
+    }
+}
+
+/* フラッシュ ================================ */
+.flash {
+  padding: 10px 0;
+  color: white;
+  background: rgb(251, 170, 88);
+  text-align: center;
+  position: absolute;
+  top: 64px;
+  z-index: 10;
+  width: 100%;
+  border-radius: 0 0 2px 2px;
+  font-size: 14px;
+}

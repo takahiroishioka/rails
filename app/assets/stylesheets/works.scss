@@ -1,0 +1,148 @@
+// Place all the styles related to the works controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+header{
+    background: #5D99FF;
+}
+
+main{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.display_none{
+    display: none;
+}
+
+ul.header_menu,ul .work_members{
+    list-style: none;
+    display: flex;
+}
+
+li.side_menu{
+    width: 20%;
+}
+        
+li.main_content{
+    width: 80%;
+}
+
+.work_header{
+    width: 100%;
+    height: 400px;
+    
+    img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover; 
+    }
+}
+
+ul.work_chara_title{
+    height: 80px;
+    list-style: none;
+    display: flex;
+    margin-top: 20px;
+    border: 1px solid #5D99FF;
+ 
+    li{
+        height: 48px;
+        line-height: 48px;
+        padding-left: 20px;
+    }
+    
+    img{
+        width : 70px;
+        border-radius : 50%;
+        padding-top: 5px;
+    }
+}
+
+.graph{
+    height : 60px;
+    display: block;
+    border-radius: 5px;
+    texr-align: center;
+    background:#5D99FF;
+    color: white;
+    width: 70%;
+    line-height: 60px;
+    padding-left: 10Px;
+    
+}
+
+ul .work_members{
+    li{
+        width: 200px;
+        height: 90px;
+        line-height: 90px;
+        
+        img{
+            border-radius: 50%;
+            width:80px;
+        }
+        
+    }
+}
+
+// ここまでホーム
+//ここからchara
+ul .chara{
+    list-style: none;
+    display : flex;
+    margin-top: 10px;
+    border-bottom : 1px solid #5D99FF;
+    
+    li{
+        width : 20%;
+        margin-left: 10px;
+        height : 150px;
+        display : flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        img{
+            width : 140px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+    }
+    
+}
+
+.chara_name{
+    margin : 2.5px;
+}
+
+.join_request{
+     width: 100%;
+
+ul {
+    display: inline-block;
+    width: 18%;
+    
+    list-style:none;
+    li{
+        text-align: center;
+        
+        .display_none{
+            display: none;
+        }
+        
+        .request_btn{
+            display:block;
+            width: 80%;
+            border-radius: 10px;
+            background: #5D99FF;
+        }
+                
+        img{
+            border-radius: 50%;
+            width : 90%
+        }
+    }
+    }
+
+    }
+
+

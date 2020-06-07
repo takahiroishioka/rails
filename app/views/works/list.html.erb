@@ -1,0 +1,98 @@
+<ul class ="main_layout">
+    <li class = "side_menu">
+        <ul class ="side_menu_list">
+            <%= link_to("/works/#{params[:id]}/create_section_form") do %>
+              <li>セクション追加</li>
+            <% end %>
+            <%= link_to("/works/#{params[:id]}") do %>
+              <li>企画トップ</li>
+            <% end %>
+            <%= link_to("/works/#{params[:id]}/chara") do %>
+              <li>キャラクター</li>
+            <% end %>
+            <%= link_to("/works/#{params[:id]}/invite_member_form") do %>
+              <li>メンバー追加</li>
+            <% end %>
+          <li>脚本</li>
+          <li>スケジュール</li>
+          <li>タスク</li>
+            <%= link_to("/users/#{@current_user.id}") do %>
+              <li>マイページ</li>
+            <% end %>
+        </ul>
+    </li>
+    <li class ="main_content">
+<h1>worksDB</h1>
+ <ul class = "user_db">
+     <li>work.id</li>
+     <li>work.work_name</li>
+     <li>work.work_status</li>
+     <li>work.work_ico</li>
+     <li>work.work_top_image</li>
+ </ul>
+
+<% @works.each do |work| %>
+
+ <ul class = "user_db">
+     <li><%= work.id %></li>
+     <li><%= work.work_name %></li>
+     <li><%= work.work_status %></li>
+     <li><%= work.work_ico %></li>
+     <li><%= work.work_top_image %></li>
+ </ul>
+ <% end %>
+ 
+ 
+<h1>MemberDB</h1>
+<% @member.each do |member| %>
+ <ul class = "user_db">
+     <li><%= member.id %></li>
+     <li><%= member.user_id %></li>
+     <li><%= member.work_id %></li>
+     <li><%= member.job %></li>
+
+ </ul>
+ <% end %>
+ 
+ <h1>progress</h1>
+ <% @progress.each do |progress| %>
+  <ul class="user_db">
+                <li><%= progress.chara_icon %></li>
+                <li><%= progress.chara_name %></li>
+                <li><%= progress.work_name %></li>
+                <li><%= progress.work_status %></li>
+                <li><%= progress.update_date %></i>
+                <li><%= progress.job %></li>
+            </ul>
+            <% end %>
+            
+ 
+<h1>charaDB</h1>
+ <ul class = "user_db">
+     <li>id</li>
+     <li>chara_name</li>
+     <li>chara_icon</li>
+     <li>cast_id</li>
+     <li>tag1</li>
+     <li>tag2</li>
+     <li>tag3</li>
+     <li>tag4</li>
+     <li>work_id</li>
+ </ul>
+<% @charas.each do |chara| %>
+ <ul class = "user_db">
+     <li><%= chara.id %></li>
+     <li><%= chara.chara_name %></li>
+     <li><%= chara.chara_icon %></li>
+     <li><%= chara.cast_id %></li>
+     <li><%= chara.tag1 %></li>
+     <li><%= chara.tag2 %></li>
+     <li><%= chara.tag3 %></li>
+     <li><%= chara.tag4 %></li>
+     <li><%= chara.work_id %></li>
+ </ul>
+ <% end %>
+ 
+ 
+    </li>
+</ul>

@@ -1,0 +1,60 @@
+<div class="work_header">
+    <img src="<%= "/#{@works.work_top_image} "%>">
+</div>
+
+        <ul class ="work_chara_title">
+            <li>
+                <img src="<%= "/#{@works.work_ico} "%>">
+            </li>
+            <li>
+
+            </li>
+        </ul>
+
+<ul class ="main_layout">
+    <li class = "side_menu">
+        <ul class ="side_menu_list">
+            <%= link_to("/works/#{params[:id]}") do %>
+              <li>企画トップ</li>
+            <% end %>
+            <%= link_to("/works/#{params[:id]}/chara") do %>
+              <li>キャラクター</li>
+            <% end %>
+            <%= link_to("/works/#{params[:id]}/invite_member_form") do %>
+              <li>メンバー追加</li>
+            <% end %>
+          <li>脚本</li>
+          <li>スケジュール</li>
+          <li>タスク</li>
+            <%= link_to("/users/#{@current_user.id}") do %>
+              <li>マイページ</li>
+            <% end %>
+        </ul>
+    </li>
+    <li class ="main_content">
+        <%= form_tag("/works/#{params[:id]}/chara_edit",{multipart: true}) do %>
+        <p>企画名</p>
+        <input name="work_id" value="<%= @works.id %>">
+        <p>キャラID</p>
+        <input name="chara_id" value="<%= @charas.id %>">
+        <p>キャラ名</p>
+        <input name="chara_name" value="<%= @charas.chara_name %>">
+        <p>アイコン</p>
+        <input name="chara_icon" type="file">
+        <p>タグ1：未設定</p>
+        <input name="tag1" value="<%= @charas.tag1 %>">
+        <p>タグ2：未設定</p>
+        <input name="tag2" value="<%= @charas.tag2 %>">
+        <p>タグ3：未設定</p>
+        <input name="tag3" value="<%= @charas.tag3 %>">
+        <p>タグ4：未設定</p>
+        <input name="tag4" value="<%= @charas.tag4 %>">
+        <input type="submit" value="編集">
+        <% end %>
+        <%= form_tag("/works/#{params[:id]}/chara_destroy") do %>
+        <input name="chara_id" class ="display_none" value="<%= @charas.id %>">
+        <input name="work_id" class ="display_none" value="<%= @works.id %>">
+        <input type="submit" value="削除">
+        <% end %>
+    </li>
+</ul>

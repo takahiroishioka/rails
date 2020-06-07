@@ -1,0 +1,43 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul .message_list, ul .message_list_title{
+
+    display: flex;
+    list-style: none;
+    text-align: center;
+
+    img{
+        width: 90px;
+        border-radius : 50%;
+        padding-top: 10px;
+    }
+
+    
+    .message_post{
+        width: 14%;
+
+    }
+
+    .message_pre{
+        width: 58%;
+    }
+    
+    .message_per_position{
+        padding: 10px;
+        text-align : left;
+    }
+}
+
+
+    
+    ul .message_list{
+        
+        border-bottom : 1px solid #b8d2ff;
+        
+        .message_post{
+        line-height: 110px;
+        height : 110px;
+        }
+    }

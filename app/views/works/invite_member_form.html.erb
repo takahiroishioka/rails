@@ -1,0 +1,45 @@
+<div class="work_header">
+    <img src="<%= "/#{@works.work_top_image} "%>">
+</div>
+
+        <ul class ="work_chara_title">
+            <li>
+                <img src="<%= "/#{@works.work_ico} "%>">
+            </li>
+            <li>
+                <p><%= @members.job %>として参加中!</p>
+            </li>
+        </ul>
+
+<ul class ="main_layout">
+    <li class = "side_menu">
+        <ul class ="side_menu_list">
+            <%= link_to("/works/#{params[:id]}") do %>
+              <li>企画トップ</li>
+            <% end %>
+            <%= link_to("/works/#{params[:id]}/chara") do %>
+              <li>キャラクター</li>
+            <% end %>
+            <%= link_to("/works/#{params[:id]}/invite_member_form") do %>
+              <li>メンバー追加</li>
+            <% end %>
+          <li>脚本</li>
+          <li>スケジュール</li>
+          <li>タスク</li>
+            <%= link_to("/users/#{@current_user.id}") do %>
+              <li>マイページ</li>
+            <% end %>
+        </ul>
+    </li>
+    <li class ="main_content">
+        <%= form_tag("/works/invite") do %>
+        <p>企画名</p>
+        <input name="work_name" value="<%= @works.work_name %>">
+        <p>twitter ID</p>
+        ＠<input name="user_twitter_id">
+        <p>役割</p>
+        <input name="job">
+        <input type="submit" value="招待">
+        <% end %>
+    </li>
+</ul>

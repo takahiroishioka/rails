@@ -1,0 +1,11 @@
+
+<h1>UserDB</h1>
+<% @users.each do |user| %>
+ <ul class = "user_db">
+     <li><%= user.id %></li>
+     <li><%= user.user_name %></li>
+     <li><%= user.user_twitter_id %></li>
+     <li><%= user.password_digest %></li>
+     <li><%= user.user_icon %></li>
+ </ul>
+ <% end %>

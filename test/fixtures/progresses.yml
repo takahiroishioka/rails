@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chara_icon: MyString
+  chara_name: MyString
+  work_name: MyString
+  work_status: MyString
+  update_date: MyString
+  job: MyString
+
+two:
+  chara_icon: MyString
+  chara_name: MyString
+  work_name: MyString
+  work_status: MyString
+  update_date: MyString
+  job: MyString

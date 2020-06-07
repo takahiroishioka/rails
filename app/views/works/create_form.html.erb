@@ -1,0 +1,35 @@
+<ul class ="user_title">
+    <li>
+        <img src="<%= "/#{@current_user.user_icon}" %>">
+    </li>
+    <li>
+        <h1><%= @current_user.user_name %></h1>
+    </li>
+</ul>
+<ul class ="main_layout">
+    <li class = "side_menu">
+        <ul class ="side_menu_list">
+            <%= link_to("/users/home") do %>
+              <li>マイページ</li>
+            <% end %>
+            <%= link_to("/users/works") do %>
+              <li>参加作品</li>
+            <% end %>
+            <%= link_to("/tasks/home") do %>
+              <li>タスク</li>
+            <% end %>
+            <%= link_to("/messages/home") do %>
+              <li>メッセージ</li>
+            <% end %>
+          <li>設定</li>
+        </ul>
+    </li>
+    <li class ="main_content">
+        <p>作品名</p>
+        <%= form_tag("/works/#{@current_user.id}/create") do %>
+        <input name="work_name">
+        <input type="submit" value="作成">
+        <% end %>
+    </li>
+</ul>
+       

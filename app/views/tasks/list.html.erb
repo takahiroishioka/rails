@@ -1,0 +1,13 @@
+<h1>TaskDB</h1>
+<% @tasks.each do |task| %>
+ <ul class = "tasks_db">
+     <li><%= task.id %></li>
+     <li><%= task.task_title %></li>
+     <li><%= task.user_id %></li>
+     <li><%= task.wrok_id %></li>
+     <li><%= task.chara_id %></li>
+     <li><%= task.deadline %></li>
+     <li><%= task.task_link %></li>
+     <li><%= task.done %></li>
+ </ul>
+ <% end %>

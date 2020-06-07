@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Createmanager</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+  <div class="header-logo">
+    <a href="/">TweetApp</a>
+  </div>
+  <ul class="header-menus">
+    <li>
+      <a href="/about">タスク</a>
+      <a href="/about">通知</a>
+      <a href="/about">メッセージ</a>
+      <%= link_to("ログアウト","/logout",{method: :post}) %>
+    </li>
+  </ul>
+</header>
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <main>
+        <%= yield %>
+    <main>
+  </body>
+</html>
