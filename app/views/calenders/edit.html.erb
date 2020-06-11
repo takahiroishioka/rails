@@ -1,0 +1,80 @@
+<div class="work_header">
+    <img src="<%= "/#{@works.work_top_image} "%>">
+</div>
+
+        <ul class ="work_chara_title">
+            <li>
+                <img src="<%= "/#{@works.work_ico} "%>">
+            </li>
+            <li>
+            </li>
+        </ul>
+
+<ul class ="main_layout">
+    <li class = "side_menu">
+        <ul class ="side_menu_list">
+            <%= link_to("/works/#{params[:id]}/create_section_form") do %>
+              <li>セクション追加</li>
+            <% end %>
+            <%= link_to("/works/#{params[:id]}") do %>
+              <li>企画トップ</li>
+            <% end %>
+            <%= link_to("/works/#{params[:id]}/chara") do %>
+              <li>キャラクター</li>
+            <% end %>
+            <%= link_to("/works/#{params[:id]}/invite_member_form") do %>
+              <li>メンバー追加</li>
+            <% end %>
+          <li>脚本</li>
+          <li>スケジュール</li>
+          <li>タスク</li>
+            <%= link_to("/users/#{@current_user.id}") do %>
+              <li>マイページ</li>
+            <% end %>
+        </ul>
+    </li>
+    <li class ="main_content">
+        <h1><%= @sections.section_name %></h1>
+        <%= form_tag("/calenders/#{params[:id]}/create") do %>
+            <input type="text" name ="new_item">
+            <input type="text" value = "<%= @sections.id %>" name ="section_id" class="display_none">
+            <input type="date" name ="deadline">
+            <input type="submit" value="新規項目追加">
+        <% end %>
+        
+        <% timetables = Timetable.where(work_id: params[:id], section_id: @sections.id) %>
+        <% timetables. each do |timetable| %>
+            <ul class = "user_todo">
+             <li><%= timetable.title %></li>
+             <li><%= form_tag("/calenders/#{params[:id]}/update") do %><input type="date" name ="deadline"><input type="text" value = "<%= timetable.id %>" name ="timetable_id" class="display_none"><input type="submit" value="日程調整"><% end %></li>
+             <li></li>
+             <li><%= link_to '削除', destroy_calender_path(id: params[:id], timetable_id: timetable.id), method: :post %></li>
+            </ul>
+        <% end %>
+        
+            <% @members.each do |member| %>
+            <ul class = "user_todo">
+            <li>
+               <% if member.chara_id %>
+                 <% chara = Chara.find_by(id: member.chara_id) %>
+                 <%= chara.chara_name %>
+               <% else %>
+                 <%= member.job %> 
+               <% end %>
+            </li>
+            <li>
+                 <% user = User.find_by(id: member.user_id) %>
+                 <%= user.user_name %>               
+            </li>
+            <li>
+                <% staff = Staff.find_by(member_id: member.id) %>
+                <% if staff %>
+                <%= link_to '取り消す', destroy_staff_path(id: params[:id], staff_id: staff.id), method: :post %>
+                <% else %>
+                <%= link_to '参加する', join_staff_path(id: params[:id], section_id: @sections.id, member_id: member.id), method: :post %>
+                <% end %>
+            </li>
+            </ul>
+            <% end %>
+    </li>
+</ul>

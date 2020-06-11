@@ -1,0 +1,44 @@
+<ul class ="user_title">
+    <li>
+        <img src="<%= "/#{@current_user.user_icon}" %>">
+    </li>
+    <li>
+        <h1><%= @current_user.user_name %></h1>
+    </li>
+</ul>
+<ul class ="main_layout">
+    <li class = "side_menu">
+        <ul class ="side_menu_list">
+            <%= link_to("/users/#{@current_user.id}") do %>
+              <li>マイページ</li>
+            <% end %>
+            <%= link_to("/users/#{@current_user.id}/works") do %>
+              <li>参加作品</li>
+            <% end %>
+            <%= link_to("/tasks/#{@current_user.id}") do %>
+              <li>タスク</li>
+            <% end %>
+            <%= link_to("/messages/#{@current_user.id}") do %>
+              <li>メッセージ</li>
+            <% end %>
+          <li>設定</li>
+            <%= link_to("/works/#{@current_user.id}/create_form") do %>
+              <li class="admin">企画立ち上げ</li>
+            <% end %>
+        </ul>
+    </li>
+    <li class ="main_content">
+        <%= form_tag("/users/#{params[:id]}/update",{multipart: true}) do %>
+        <p>表示名</p>
+        <input name="user_name" value="<%= @current_user.user_name %>">
+        <p>アイコン</p>
+        <input name="user_icon" type="file"><br><br>
+        <input type="submit" value="編集">
+        <% end %>
+        <br><br>
+        <%= form_tag("/users/#{params[:id]}/destroy") do %>
+        
+        <input type="submit" value="削除">
+        <% end %>
+    </li>
+</ul>

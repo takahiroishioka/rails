@@ -1,0 +1,98 @@
+<ul class ="user_title">
+    <li>
+        <img src="<%= "/#{@current_user.user_icon}" %>">
+    </li>
+    <li>
+        <h1><%= @current_user.user_name %></h1>
+    </li>
+</ul>
+<ul class ="main_layout">
+    <li class = "side_menu">
+        <ul class ="side_menu_list">
+            <%= link_to("/users/#{@current_user.id}") do %>
+              <li>マイページ</li>
+            <% end %>
+            <%= link_to("/works/#{@current_user.id}/index") do %>
+              <li>参加作品</li>
+            <% end %>
+            <%= link_to("/tasks/#{@current_user.id}") do %>
+              <li>タスク</li>
+            <% end %>
+            <%= link_to("/messages/#{@current_user.id}") do %>
+              <li>メッセージ</li>
+            <% end %>
+            <%= link_to("/users/#{@current_user.id}/edit") do %>
+              <li>設定</li>
+            <% end %>
+            <%= link_to("/works/#{@current_user.id}/new") do %>
+              <li class="admin">企画立ち上げ</li>
+            <% end %>
+        </ul>
+    </li>
+    <li class ="main_content">
+        <img  class = "baloon_ico" src = "/ico_hiina.png">
+        <div class="balloon1-left">
+            <p>いよいよ収録だな！頑張れよ！<p>
+        </div>
+
+        <h2>最新の進捗</h2>
+            <ul class="user_new_title">
+                <li>アイコン</li>
+                <li>キャラ名</li>
+                <li>作品名</li>
+                <li>ステータス</li>
+                <li>更新日</li>
+                <li>ジョブ</li>
+            </ul>
+
+
+            <% @progress.first(2).each do |progress| %>
+            <ul class="user_new">
+                <li class="chara_icon"><img src ="<%= "#{progress.chara_icon}" %>"></li>
+                <li><%= progress.chara_name %></li>
+                <li><%= progress.work_name %></li>
+                <li><%= progress.work_status %></li>
+                <li><%= progress.update_date %></i>
+                <li><%= progress.job %></li>
+            </ul>
+            <% end %>
+            
+            <ul class="user_new">
+                <li class="chara_icon"><img src ="/chara_raplus_05hitotoki.jpg"></li>
+                <li>雨音</li>
+                <li>ラプラスの餞に</li>
+                <li>2話確認依頼中</li>
+                <li>20/5/6</i>
+                <li>演者</li>
+            </ul>
+            <ul class="user_new">
+                <li class="chara_icon"><img src ="/free_ico_01.jpg"></li>
+                <li>-</li>
+                <li>いとしーひと</li>
+                <li>制作中</li>
+                <li>20/5/6</i>
+                <li>企画者</li>
+            </ul>
+
+            
+            
+        <h2>ToDoリスト</h2>
+            <ul class="user_todo_title">
+                <li>タスク</li>
+                <li>期日</li>
+                <li>キャラ</li>
+                <li>企画</li>
+                <li>ToDo</li>
+          </ul>
+            <% @tasks.each do |task| %>
+            <ul class = "user_todo">
+             <li><%= task.task_title %></li>
+             <li><%= task.deadline.strftime('%m/%d') %></li>
+             <li><%= task.chara_name %></li>
+             <li><%= link_to("#{task.work_name}","/works/#{task.wrok_id}") %></li>
+             <li><%= link_to("確認する","#{task.task_link}")  %></li>
+            </ul>
+            <% end %>
+           </li>
+        </ul>
+       

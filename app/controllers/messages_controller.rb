@@ -5,6 +5,6 @@ class MessagesController < ApplicationController
     @current_user = User.find_by(id: session[:user_id])
   end
   
-  def home
+  def index
   end
 end

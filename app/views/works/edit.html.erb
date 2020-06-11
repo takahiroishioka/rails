@@ -1,0 +1,50 @@
+<div class="work_header">
+    <img src="<%= "/#{@works.work_top_image} "%>">
+</div>
+
+        <ul class ="work_chara_title">
+            <li>
+                <img src="<%= "/#{@works.work_ico} "%>">
+            </li>
+            <li>
+
+            </li>
+        </ul>
+
+<ul class ="main_layout">
+    <li class = "side_menu">
+        <ul class ="side_menu_list">
+            <%= link_to("/works/#{params[:id]}") do %>
+              <li>企画トップ</li>
+            <% end %>
+            <%= link_to("/works/#{params[:id]}/chara") do %>
+              <li>キャラクター</li>
+            <% end %>
+            <%= link_to("/works/#{params[:id]}/invite_member_form") do %>
+              <li>メンバー追加</li>
+            <% end %>
+          <li>脚本</li>
+          <li>スケジュール</li>
+          <li>タスク</li>
+            <%= link_to("/users/#{@current_user.id}") do %>
+              <li>マイページ</li>
+            <% end %>
+        </ul>
+    </li>
+    <li class ="main_content">
+        <%= form_tag("/works/#{params[:id]}/update",{multipart: true}) do %>
+        <p>企画名</p>
+        <input name="work_name" value="<%= @works.work_name %>">
+        <p>企画アイコン</p>
+        <input name="work_ico" type="file">
+        <p>企画トップイラスト</p>
+        <input name="work_top_image" type="file"><br><br>
+        <input type="submit" value="編集">
+        <% end %>
+        <br><br>
+        
+        <%= form_tag("/works/#{params[:id]}/destroy") do %>
+        <input type="submit" value="削除">
+        <% end %>
+    </li>
+</ul>

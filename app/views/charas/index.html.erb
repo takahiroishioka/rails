@@ -1,0 +1,60 @@
+<div class="work_header">
+    <img src="<%= "/#{@works.work_top_image} "%>">
+</div>
+
+        <ul class ="work_chara_title">
+            <li>
+                <img src="/ark.png">
+            </li>
+            <li>
+                <p>アーク役として参加中!</p>
+            </li>
+        </ul>
+
+<ul class ="main_layout">
+    <li class = "side_menu">
+        <ul class ="side_menu_list">
+        <%= link_to("/charas/#{params[:id]}/new") do %>
+            <li>新規キャラ登録</li>
+        <% end %>
+            <%= link_to("/works/#{params[:id]}") do %>
+              <li>企画トップ</li>
+            <% end %>
+            <%= link_to("/charas/#{params[:id]}") do %>
+              <li>キャラクター</li>
+            <% end %>
+          <li>脚本</li>
+          <li>スケジュール</li>
+          <li>タスク</li>
+            <%= link_to("/users/#{@current_user.id}") do %>
+              <li>マイページ</li>
+            <% end %>
+        </ul>
+    </li>
+    <li class ="main_content">
+    <h1><%= @works.work_name %></h1>
+    <% @charas.each do |chara| %>
+     <ul class = "chara">
+     <li><img src="<%= "/chara_icon/#{chara.chara_icon}" %>"></li>
+     <li><%= chara.chara_name %></li>
+     <li>
+         <% if chara.cast_id == nil %>
+         <%= link_to 'キャスト依頼', :controller => 'offers', :action => 'new', id: @works.id, chara_id: chara.id  %>
+         <% elsif chara.cast_id == 0 %>
+         依頼中
+         <% else %>
+            <% @users = User.find(chara.cast_id) %>
+            <%= @users.user_name %>
+         <% end %>
+     </li>
+     <li><%= chara.tag1 %></li>
+     <li><%= chara.tag2 %></li>
+     <li><%= chara.tag3 %></li>
+     <li><%= chara.tag4 %></li>
+     <li><%= link_to '編集する', :controller => 'charas', :action => 'edit', id: @works.id, chara_id: chara.id  %></li>
+     </ul>
+     <% end %>
+       
+    </li>
+</ul>
+       

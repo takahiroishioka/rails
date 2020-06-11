@@ -7,7 +7,7 @@
             <%= link_to("/works/#{params[:id]}") do %>
               <li>企画トップ</li>
             <% end %>
-            <%= link_to("/works/#{params[:id]}/chara") do %>
+            <%= link_to("/charas/#{params[:id]}") do %>
               <li>キャラクター</li>
             <% end %>
             <%= link_to("/works/#{params[:id]}/invite_member_form") do %>
@@ -44,13 +44,20 @@
  
  
 <h1>MemberDB</h1>
+ <ul class = "user_db">
+     <li>id</li>
+     <li>user_id</li>
+     <li>work_id</li>
+     <li>job</li>
+     <li>chara_id</li>
+ </ul>
 <% @member.each do |member| %>
  <ul class = "user_db">
      <li><%= member.id %></li>
      <li><%= member.user_id %></li>
      <li><%= member.work_id %></li>
      <li><%= member.job %></li>
-
+     <li><%= member.chara_id %></li>
  </ul>
  <% end %>
  
@@ -90,6 +97,37 @@
      <li><%= chara.tag3 %></li>
      <li><%= chara.tag4 %></li>
      <li><%= chara.work_id %></li>
+ </ul>
+ <% end %>
+ 
+  
+<h1>scriptDB</h1>
+ <ul class = "user_db">
+     <li>id</li>
+     <li>section_name</li>
+     <li>work_id</li>
+ </ul>
+<% @sections.each do |section| %>
+ <ul class = "user_db">
+     <li><%= section.id %></li>
+     <li><%= section.section_name %></li>
+     <li><%= section.work_id %></li>
+ </ul>
+ <% end %>
+ 
+ <h1>timetableDB</h1>
+ <ul class = "user_db">
+     <li>id</li>
+     <li>section_name</li>
+     <li>work_id</li>
+ </ul>
+<% @timetable.each do |timetable| %>
+ <ul class = "user_db">
+     <li><%= timetable.id %></li>
+     <li><%= timetable.title %></li>
+     <li><%= timetable.deadline %></li>
+     <li><%= timetable.work_id %></li>
+     <li><%= timetable.section_id %></li>
  </ul>
  <% end %>
  

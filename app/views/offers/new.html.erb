@@ -1,0 +1,48 @@
+<div class="work_header">
+    <img src="<%= "/#{@works.work_top_image} "%>">
+</div>
+
+        <ul class ="work_chara_title">
+            <li>
+                <img src="/ark.png">
+            </li>
+            <li>
+                <p>アーク役として参加中!</p>
+            </li>
+        </ul>
+
+<ul class ="main_layout">
+    <li class = "side_menu">
+        <ul class ="side_menu_list">
+        <%= link_to("/works/#{params[:id]}/chara_create_form") do %>
+            <li>新規キャラ登録</li>
+        <% end %>
+            <%= link_to("/works/#{params[:id]}") do %>
+              <li>企画トップ</li>
+            <% end %>
+          <li>登場人物</li>
+          <li>脚本</li>
+          <li>スケジュール</li>
+          <li>タスク</li>
+            <%= link_to("/users/#{@current_user.id}") do %>
+              <li>マイページ</li>
+            <% end %>
+        </ul>
+    </li>
+    <li class ="main_content">
+    <h1><%= @works.work_name %></h1>
+     <div class="join_request">
+    <% @users.each do |user| %>
+         <ul>
+             <li class ="display_none"><%= user.id %></li>
+             <li><img src ="/<%= user.user_icon %>"></li>
+             <li><%= user.user_name %></li>
+             <li class ="request_btn"><%= link_to '依頼', join_request_path(id: @works.id, chara_id: params[:chara_id], user_id: user.id), method: :post %></li>
+         </ul>
+     <% end %>
+    </div>
+
+    </li>
+</ul>
+       
+

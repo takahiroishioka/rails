@@ -1,40 +1,73 @@
 Rails.application.routes.draw do
   
-  get "messages/:id/" => "messages#home"  
+  post "staffs/:id/create" => "staffs#create", as: :join_staff
+  post "staffs/:id/destroy" => "staffs#destroy", as: :destroy_staff
+  
+  get 'calenders/index'
+  get "calenders/:id/edit" => "calenders#edit", as: :edit_calender
+  post "calenders/:id/update" => "calenders#update"
+  post "calenders/:id/destroy" => "calenders#destroy", as: :destroy_calender
+  post"calenders/:id/create" => "calenders#create"
+
+  get "messages/:id/" => "messages#index"  
 
   get "tasks/list" => "tasks#list"  
-  get "tasks/:id/" => "tasks#home"
-  get "tasks/:id/re_join_request_form" => "tasks#re_join_request_form", as: :re_join_request_form
-  post "tasks/re_join_request" => "tasks#re_join_request", as: :re_join_request
-
+  get "tasks/:id/" => "tasks#index"
+  
+  
+  get "offers/:id/new" => "offers#new"
+  get "offers/:id/edit" => "offers#edit", as: :re_join_request_form
+  post "offers/:id/update" => "offers#update", as: :re_join_request
+  post "offers/:id/create" => "offers#create", as: :join_request
+  
   get 'users/list'
-  get "users/login_form" => "users#login_form" 
-  post "login" => "users#login"
-  post "logout" => "users#logout"
-  get "users/:id" => "users#home" 
-  get "users/:id/works" => "users#works"
+  get "/login_form" => "users#login_form" 
+  get "/new" => "users#new"
+  post "/login" => "users#login"
+  post "/logout" => "users#logout"
+  post "/create" => "users#create"
+  get "users/:id" => "users#index" 
+  get "users/:id/edit" => "users#edit"
+  post"users/:id/update" => "users#update"
+  post"users/:id/destroy" => "users#destroy"
 
   get "works/list" => "works#list"
-  post "works/invite" => "works#invite"
-  post "works/chara_create" => "works#chara_create"
-  get "works/:id/create_section_form" => "works#create_section_form"
-  post "works/:id/const_section" => "works#const_section"
-  post "works/:id/add_section_form" => "works#add_section"
-  post "works/:id/destroy_section" => "works#destroy_section", as: :destroy_section
-  get "works/:id/create_form" => "works#create_form"
-  post "works/:id/create" => "works#create"
-  get "works/:id/chara" => "works#chara"
-  get "works/:id/join_request_form" => "works#join_request_form"
-  post "works/:id/join_request" => "works#join_request", as: :join_request
-  get "works/:id/chara_edit_form" => "works#chara_edit_form"
-  post "works/:id/chara_edit" => "works#chara_edit"
-  post "works/:id/chara_destroy" => "works#chara_destroy"
-  get "works/:id/chara_create_form" => "works#chara_create_form"
-  get "works/:id/script" => "works#script"
-  get "works/:id/invite_member_form" => "works#invite_member_form"
-  get "works/:id" => "works#home"
+  get "works/:id/index" => "works#index" #このIDはUser_id
+  get "works/:id/new" => "works#new" #このIDもUser_id
+  post "works/:id/create" => "works#create" #ここから下IDはwork_id
+  get "works/:id" => "works#show"
+  get "works/:id/edit" => "works#edit"
+  post "works/:id/update" => "works#update"
+  post "works/:id/destroy" => "works#destroy"
+  
+  get "charas/:id" => "charas#index" #:idはwork_id
+  get "charas/:id/new" => "charas#new"
+  get "charas/:id/edit" => "charas#edit"
+  post "charas/:id/create" => "charas#create"
+  post "charas/:id/update" => "charas#update"
+  post "charas/:id/destroy" => "charas#destroy"
+  
+  get "sections/:id" => "sections#index"
+  get "sections/:id/new" => "sections#new"
+  post "sections/:id/create" => "sections#create"
+  post "sections/:id/destroy" => "sections#destroy", as: :destroy_section
+
+  post "const_sections/:id/create" => "const_sections#create"
+
+  get "members/:id/new" => "members#new"
+  post "members/:id/create" => "members#create"
+
+  get "scripts/:id" => "scripts#show"
+  get "scripts/new" => "scripts#new"  
 
   
+  
+
+
+  
+  get "calenders/:id/index" => "calenders#index"
+  
   get "/" => "home#top"
+    resources :scripts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
